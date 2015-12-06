@@ -1,0 +1,12 @@
+Initial state: AgentAt(roomE), FlagAt(flagF, roomE), FlagAt(flagE, roomE), Adjacent(roomE, roomC), FlagAt(flagC, roomC), Adjacent(roomC, hallB), Adjacent(hallB, roomB), FlagAt(flagB, roomB), Adjacent(roomB, hallB), Adjacent(hallB, hallA), Adjacent(hallA, roomA), FlagAt(flagA, roomA), Adjacent(roomA, hallA), Adjacent(hallA, roomD), FlagAt(flagD, roomD), Adjacent(roomC, roomE), Adjacent(hallB, roomC),  Adjacent(hallA, hallB), Adjacent(roomD, hallA)
+Goal state:    HasFlag(flagF), HasFlag(flagE), HasFlag(flagD), HasFlag(flagC), HasFlag(flagB), HasFlag(flagA), AgentAt(roomD)
+Actions:
+			   //Take Flag F in room R
+			   Take(F,R)
+			   Preconditions:  AgentAt(R), FlagAt(F,R)
+			   Postconditions: AgentAt(R), !FlagAt(F,R), HasFlag(F)
+
+			   //Move Agent from X to Y
+			   Move(X,Y)
+			   Preconditions:  AgentAt(X), Adjacent(X,Y)
+			   Postconditions: !AgentAt(X), AgentAt(Y)
