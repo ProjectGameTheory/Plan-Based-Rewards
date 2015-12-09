@@ -30,17 +30,22 @@ def vertical_wall(walls):
 
 def horizontal_wall(walls):
     return walls & 2
-
+seen_rooms = []
 for i in range(m):
     for j in range(n):
-        walls = grid[i][j][0]
-        flag = grid[i][j][1]
+        walls, flag, room = grid[i][j]
         if vertical_wall(walls):
             ax.axvline(x=j,ymin=float(i)/m,ymax=float(i+1)/m,linewidth=4, color='k')
         if horizontal_wall(walls):
             ax.axhline(y=i,xmin=float(j)/n,xmax=float(j+1)/n,linewidth=4, color='k')
         if flag:
             ax.text(float(j+0.5)/n, float(i+0.5)/m, flag, fontsize=12,horizontalalignment='center',
+                    verticalalignment='center',
+                    transform=ax.transAxes)
+        if room not in seen_rooms:
+            seen_rooms.append(room)
+            ax.text(float(j+0.5)/n, float(i+0.5)/m, room, fontsize=14,
+                    weight='bold',
                     verticalalignment='center',
                     transform=ax.transAxes)
 ax.axhline(y=m,linewidth=4,color='k')
@@ -51,5 +56,6 @@ ax2.tick_params(axis=u'both', which=u'both',length=0)
 ax3.tick_params(axis=u'both', which=u'both',length=0)
 ax2.yaxis.set_ticks_position('left')
 ax3.xaxis.set_ticks_position('bottom')
+
 plt.draw()
 plt.show()
