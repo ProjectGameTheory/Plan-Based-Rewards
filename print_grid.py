@@ -48,6 +48,24 @@ for i in range(m):
                     weight='bold',
                     verticalalignment='center',
                     transform=ax.transAxes)
+
+ax.text(float(4.15)/n, float(7+0.5)/m, 'S1', fontsize=14,
+                    weight='bold',
+                    verticalalignment='center',
+                    transform=ax.transAxes)
+ax.axhline(y=m,linewidth=4,color='k')
+ax.axvline(x=n,linewidth=4,color='k')
+ax.text(float(14.20)/n, float(7+0.5)/m, 'S2', fontsize=14,
+                    weight='bold',
+                    verticalalignment='center',
+                    transform=ax.transAxes)
+ax.text(float(0.8)/n, float(1.5)/m, 'Goal', fontsize=14,
+                    weight='bold',
+                    rotation=-45,
+                    verticalalignment='center',
+                    transform=ax.transAxes)
+ax.axhline(y=m,linewidth=4,color='k')
+ax.axvline(x=n,linewidth=4,color='k')
 ax.axhline(y=m,linewidth=4,color='k')
 ax.axvline(x=n,linewidth=4,color='k')
 ax2.set_yticklabels([i/2 if i % 2 else '' for i in range(2*m)], minor=False)
